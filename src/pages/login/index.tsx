@@ -6,10 +6,10 @@ import { googleButtonStyles, StyledLogin } from "./styles";
 export function Login() {
   return (
     <StyledLogin className="w-full min-h-[100vh] bg-black flex justify-between">
-      <div className="flex-1 min-w-[40%] flex flex-col items-center justify-center">
+      <div className="flex-1 min-w-[40%] flex flex-col items-center justify-center pt-10 md:p-0">
         <div className="px-4">
           <div className="text-center">
-            <Typography variant="h1" className="!text-5xl">
+            <Typography variant="h1" className="!text-4xl md:!text-5xl">
               Welcome Back
             </Typography>
             <Typography variant="body2">Please enter your details</Typography>
@@ -32,7 +32,7 @@ export function Login() {
         </div>
       </div>
 
-      <div className="h-[100vh]">
+      <div className="h-[100vh] hidden lg:block">
         <img
           className="w-full h-full"
           src="/banners/login-banner.jpg"

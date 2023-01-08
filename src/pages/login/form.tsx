@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useInputText } from "../../hooks";
 import { StyledTextField } from "./styles";
 
@@ -16,6 +16,8 @@ export function Form() {
         <div className="mt-4">
           <StyledTextField
             required
+            autoFocus
+            name="email"
             type="email"
             label="Email"
             autoComplete="off"
@@ -30,6 +32,7 @@ export function Form() {
         <div className="my-4">
           <StyledTextField
             required
+            name="password"
             type="password"
             label="Password"
             onBlur={input.onBlur}
@@ -40,13 +43,20 @@ export function Form() {
           />
         </div>
 
-        <div className="w-max ml-auto">
-          <a href="#">Forgot password</a>
-        </div>
-
-        <Button variant="contained" sx={{ width: "100%", mt: 2, py: 1.4 }}>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ width: "100%", mt: 2, py: 1.4 }}
+        >
           Login
         </Button>
+      </div>
+      <div className="w-max mt-4 mr-auto">
+        <a href="#">Forgot password</a>
+
+        <Typography variant="body2" sx={{ mt: 1 }} className="!w-max !ml-auto">
+          Don't have an account? <a href="#">Sign up</a>
+        </Typography>
       </div>
     </form>
   );

@@ -6,7 +6,7 @@ export function useInputText<T>(initialValues: T): T & UseInputText<T> {
   const passwordMsg =
     "Minimo 6 caracteres, uma letra maiuscula, um numero e um caractere especial";
 
-  const [values, setValues] = React.useState<T>(initialValues || ({} as T));
+  const [values, setValues] = React.useState<T>(initialValues);
   const [errors, setErrors] = React.useState<T>({} as T);
 
   function updateErrors(newErrors: { [T: string]: string }) {
@@ -20,6 +20,9 @@ export function useInputText<T>(initialValues: T): T & UseInputText<T> {
     event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     const { name, value } = event.currentTarget;
+
+    if (errors) setErrors({ ...errors, [name]: undefined });
+
     setValues({ ...values, [name]: value });
   }
 

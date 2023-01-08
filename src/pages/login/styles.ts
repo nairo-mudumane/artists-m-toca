@@ -26,4 +26,8 @@ export const googleButtonStyles = {
 
 export const StyledTextField = MuiStyled(TextField)`
   width: 100%;
+
+  & fieldset {
+    border-color: ${THEME.colors.textSecondary};
+  }
 `;
