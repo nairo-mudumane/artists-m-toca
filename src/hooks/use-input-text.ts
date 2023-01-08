@@ -2,12 +2,12 @@ import React from "react";
 import { isValidEmail, isValidPassword } from "../resources";
 import { UseInputText } from "./@types";
 
-export function useInputText<T>(initialValues: T): T & UseInputText {
+export function useInputText<T>(initialValues: T): T & UseInputText<T> {
   const passwordMsg =
     "Minimo 6 caracteres, uma letra maiuscula, um numero e um caractere especial";
 
   const [values, setValues] = React.useState<T>(initialValues || ({} as T));
-  const [errors, setErrors] = React.useState<{ [k: string]: string }>({});
+  const [errors, setErrors] = React.useState<T>({} as T);
 
   function updateErrors(newErrors: { [T: string]: string }) {
     setErrors({
@@ -115,7 +115,7 @@ export function useInputText<T>(initialValues: T): T & UseInputText {
 
   function clear() {
     setValues(initialValues);
-    setErrors({});
+    setErrors({} as T);
   }
 
   return {

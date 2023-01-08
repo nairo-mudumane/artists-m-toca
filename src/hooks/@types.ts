@@ -1,8 +1,8 @@
-export interface UseInputTextErrors {
-  errors: { [k: string]: string };
+export interface UseInputTextErrors<T> {
+  errors: T;
 }
 
-export interface UseInputText extends Pick<UseInputTextErrors, "errors"> {
+export interface UseInputText<T> extends Pick<UseInputTextErrors<T>, "errors"> {
   onChange: (
     event: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
