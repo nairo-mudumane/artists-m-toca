@@ -1,4 +1,5 @@
 import React from "react";
+import { Lens } from "@mui/icons-material";
 import {
   Button,
   CircularProgress,
@@ -9,7 +10,7 @@ import {
 import { Logo, PageContainer } from "../../components";
 import { useInputText } from "../../hooks";
 import { StyledTextField } from "./styles";
-import { Lens } from "@mui/icons-material";
+import { CountdownCircleTimer } from "react-countdown-circle-timer";
 
 const Bullet = () => (
   <span className="text-[0.5em]">
@@ -22,6 +23,11 @@ export function ForgotPassword() {
 
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [isDone, setIsDone] = React.useState<boolean>(false);
+  const [count, setCount] = React.useState<number>(60);
+
+  function resend() {
+    setIsDone(false);
+  }
 
   function onSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -38,6 +44,22 @@ export function ForgotPassword() {
 
   return (
     <>
+      <div className="hidden">
+        <CountdownCircleTimer
+          isPlaying={isDone}
+          duration={60}
+          colors={"#004777"}
+        >
+          {({ remainingTime }) => {
+            React.useEffect(() => {
+              setCount(remainingTime);
+            }, [remainingTime]);
+
+            return remainingTime;
+          }}
+        </CountdownCircleTimer>
+      </div>
+
       <div className="fixed top-3 left-3">
         <Logo texted={false} size="sm" link="/" />
       </div>
@@ -50,7 +72,7 @@ export function ForgotPassword() {
               sx={{ mb: 4 }}
               className="text-primary !text-center !text-3xl md:!text-4xl"
             >
-              {isDone ? "Pronto! Verifique o seu e-email" : "Resetar senha"}
+              {isDone ? "Pronto! Verifique o seu e-email" : "Recuperar senha"}
             </Typography>
 
             {isDone ? (
@@ -85,10 +107,23 @@ export function ForgotPassword() {
                   </ListItem>
 
                   <ListItem>
-                    <Bullet />
-                    <span>
-                      <Button>Reenviar</Button> em 60s.
-                    </span>
+                    {count !== 0 && (
+                      <>
+                        <Bullet />
+                        <span>
+                          Aguarde <span className="text-primary">{count}</span>{" "}
+                          segundos para reenviar!
+                        </span>
+                      </>
+                    )}
+
+                    {count === 0 && (
+                      <span>
+                        <Button onClick={resend} variant="outlined">
+                          Reenviar
+                        </Button>
+                      </span>
+                    )}
                   </ListItem>
                 </List>
               </div>

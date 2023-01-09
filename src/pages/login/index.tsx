@@ -1,6 +1,5 @@
-import { Button, Divider, Grid, Typography } from "@mui/material";
+import { Button, Divider, Typography } from "@mui/material";
 import { PageContainer } from "../../components";
-import { THEME } from "../../global";
 import { Form } from "./form";
 import { googleButtonStyles, StyledLogin } from "./styles";
 
@@ -15,7 +14,6 @@ export function Login() {
                 <Typography variant="h1" className="!text-3xl md:!text-4xl">
                   Bem Vindo de Volta
                 </Typography>
-                <Typography variant="body2">Digite suas credencias</Typography>
               </div>
 
               <Button variant="contained" sx={googleButtonStyles}>
