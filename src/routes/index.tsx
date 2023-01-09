@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { ForgotPassword, Login, Overview } from "../pages";
+import { ForgotPassword, Login, Overview, SignUp } from "../pages";
 
 export default function () {
   return (
@@ -7,6 +7,7 @@ export default function () {
       <Route path="/" element={<Overview />} />
       <Route path="/login" element={<Login />} />
       <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/new" element={<SignUp />} />
     </Routes>
   );
 }

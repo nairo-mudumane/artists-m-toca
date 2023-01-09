@@ -76,7 +76,7 @@ export function ForgotPassword() {
             </Typography>
 
             {isDone ? (
-              <div>
+              <>
                 <Typography variant="body1">
                   Enviamos um e-mail no endereco{" "}
                   <a href={`mailto:${input.email}`} className="link">
@@ -126,7 +126,7 @@ export function ForgotPassword() {
                     )}
                   </ListItem>
                 </List>
-              </div>
+              </>
             ) : (
               <form onSubmit={onSubmit}>
                 <Typography variant="body1" sx={{ mb: 2 }}>
