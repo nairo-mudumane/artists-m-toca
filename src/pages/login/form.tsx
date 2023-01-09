@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Typography } from "@mui/material";
 import { useInputText } from "../../hooks";
 import { StyledTextField } from "./styles";
+import { Link } from "react-router-dom";
 
 export function Form() {
   const input = useInputText({ email: "", password: "" });
@@ -52,10 +53,10 @@ export function Form() {
         </Button>
       </div>
       <div className="w-max mt-4 mr-auto">
-        <a href="#">Forgot password</a>
+        <Link to="/forgot-password">Forgot password</Link>
 
         <Typography variant="body2" sx={{ mt: 1 }} className="!w-max !ml-auto">
-          Don't have an account? <a href="#">Sign up</a>
+          Don't have an account? <Link to="/new">Sign up</Link>
         </Typography>
       </div>
     </form>

@@ -1,11 +1,11 @@
 import { GlobalStyles } from "./global";
-import { Login } from "./pages";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Login />
+      <AppRoutes />
     </>
   );
 }
