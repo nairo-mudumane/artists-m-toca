@@ -35,7 +35,7 @@ export function Form() {
             required
             name="password"
             type="password"
-            label="Password"
+            label="Senha"
             onBlur={input.onBlur}
             value={input.password}
             onChange={input.onChange}
@@ -49,14 +49,19 @@ export function Form() {
           variant="contained"
           sx={{ width: "100%", mt: 2, py: 1.4 }}
         >
-          Login
+          Entrar
         </Button>
       </div>
       <div className="w-max mt-4 mr-auto">
-        <Link to="/forgot-password">Forgot password</Link>
+        <Link to="/forgot-password" className="link">
+          Esqueceu a senha?
+        </Link>
 
         <Typography variant="body2" sx={{ mt: 1 }} className="!w-max !ml-auto">
-          Don't have an account? <Link to="/new">Sign up</Link>
+          Nao possui uma conta?{" "}
+          <Link to="/new" className="link">
+            Crie uma
+          </Link>
         </Typography>
       </div>
     </form>

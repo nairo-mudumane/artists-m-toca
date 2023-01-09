@@ -12,6 +12,10 @@ a {
   }
 }
 
+a.link {
+  color: ${THEME.colors.primary};
+}
+
 ::-webkit-scrollbar {
   background: transparent;
   width: 10px;
